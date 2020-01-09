@@ -12,7 +12,7 @@ const person = (props) => {
     return (
         <div>
             {/*<p>I am a { props.name } and { Math.floor(Math.random() * 30) } year old.</p>*/}
-            <p>I am a { props.name } and { props.age } year old.</p>
+            <p onClick={ props.click } >I am a { props.name } and { props.age } year old.</p>
             <p>{ props.children }</p>
         </div>
     );

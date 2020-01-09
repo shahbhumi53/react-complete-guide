@@ -47,12 +47,12 @@ class App extends Component {
         otherStateProp: 'Will it be changed ?'
     };
 
-    switchNameHandler = () => {
+    switchNameHandler = (args) => {
         // console.log('Hello');
         // DONT'T DO THIS - this.state.persons[0] = "DJ";
         this.setState({
             persons: [
-                { name: "DJ", age: 25 },
+                { name: args, age: 25 },
                 { name: "Vaidehi", age: 27 },
                 { name: "Beena", age: 48 },
             ]
@@ -69,16 +69,24 @@ class App extends Component {
                  execute that functional immediately on load of the page. But we need the
                   function to be executed only when button is clicked. We just passed the
                    reference */}
-                <button onClick={ this.switchNameHandler } >Switch names</button>
+                {/*  following syntax is inconvenient  */}
+                <button onClick={ () => this.switchNameHandler('DJ') } >Switch names</button>
 
                 <br/>
                 <b>{ this.state.otherStateProp }</b>
 
-                <Person name={ this.state.persons[0].name } age={ this.state.persons[0].age } />
+                <Person name={ this.state.persons[0].name }
+                        age={ this.state.persons[0].age } />
                 <hr/>
-                <Person name={ this.state.persons[1].name } age={ this.state.persons[1].age } >My hobby is : Shoes... collecting shoes</Person>
+                {/* preferable syntax to declare click events  */}
+                <Person name={ this.state.persons[1].name }
+                        age={ this.state.persons[1].age }
+                        click={ this.switchNameHandler.bind(this, 'DJOSHI') }>
+                    My hobby is : Shoes... collecting shoes
+                </Person>
                 <hr/>
-                <Person name={ this.state.persons[2].name } age={ this.state.persons[2].age } />
+                <Person name={ this.state.persons[2].name }
+                        age={ this.state.persons[2].age } />
             </div>
         );
     }
