@@ -4,10 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-.idea
-.idea/*
-.idea/*.xml
-.idea/*.iml
+/.idea
+/.idea/*
+/.idea/workspace.xml
 
 # testing
 /coverage
