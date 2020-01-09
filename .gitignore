@@ -6,6 +6,8 @@
 .pnp.js
 .idea
 .idea/*
+.idea/*.xml
+.idea/*.iml
 
 # testing
 /coverage

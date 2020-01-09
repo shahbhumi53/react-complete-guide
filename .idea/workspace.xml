@@ -64,14 +64,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578555058324</updated>
-      <workItem from="1578555060370" duration="1904000" />
+      <workItem from="1578555060370" duration="3870000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="167" y="125" width="1099" height="543" key="DiffContextDialog" timestamp="1578561247276">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="167" y="125" width="1099" height="543" key="DiffContextDialog/67.27.1299.741@67.27.1299.741" timestamp="1578561247276" />
     <state x="549" y="267" width="324" height="258" key="VCS.EditChangelistDialog" timestamp="1578558959633">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
