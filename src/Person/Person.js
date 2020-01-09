@@ -1,4 +1,5 @@
 import React from 'react';
+import './Person.css';
 
 /*
  - as props contains something that is comes from outside of the component
@@ -10,7 +11,7 @@ const person = (props) => {
     // dynamic content can be part of JSX, just need to wrap it on curly braces
     /*this will render anything between tag of Person in JSX */
     return (
-        <div>
+        <div className="Person">
             {/*<p>I am a { props.name } and { Math.floor(Math.random() * 30) } year old.</p>*/}
             <p onClick={ props.click } >I am a { props.name } and { props.age } year old.</p>
             <p>{ props.children }</p>

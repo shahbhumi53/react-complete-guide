@@ -60,7 +60,6 @@ class App extends Component {
     };
 
     nameChangedHandler = (event) => {
-        console.log(event.target.value);
         this.setState({
             persons: [
                 { name: 'Dhwani', age: 25 },
@@ -71,6 +70,17 @@ class App extends Component {
     };
 
     render() {
+
+        // this is inline style
+        // biggest drawback of using this syntax is you can not add css like :hover, :focus etc
+        const btnStyle = {
+            backgroundColor: 'white',
+            font: 'inherit',
+            border: '1px solid blue',
+            padding: '8px',
+            cursor: 'pointer'
+        };
+
         return (
             <div className="App">
                 <h1>Hi I'm a react APP</h1>
@@ -81,14 +91,14 @@ class App extends Component {
                   function to be executed only when button is clicked. We just passed the
                    reference */}
                 {/*  following syntax is inconvenient  */}
-                <button onClick={ () => this.switchNameHandler('DJ') } >Switch names</button>
+                <button style={ btnStyle }
+                        onClick={ () => this.switchNameHandler('DJ') } >Switch names</button>
 
-                <br/>
-                <b>{ this.state.otherStateProp }</b>
+                {/*<br/>
+                <b>{ this.state.otherStateProp }</b>*/}
 
                 <Person name={ this.state.persons[0].name }
                         age={ this.state.persons[0].age } />
-                <hr/>
                 {/* preferable syntax to declare click events  */}
                 <Person name={ this.state.persons[1].name }
                         age={ this.state.persons[1].age }
@@ -96,7 +106,6 @@ class App extends Component {
                         click={ this.switchNameHandler.bind(this, 'DJOSHI') }>
                     My hobby is : Shoes... collecting shoes
                 </Person>
-                <hr/>
                 <Person name={ this.state.persons[2].name }
                         age={ this.state.persons[2].age } />
             </div>

@@ -1,3 +1,4 @@
+/* any css class defined here are global, not specific to component, unlike angular css */
 .App {
   text-align: center;
 }

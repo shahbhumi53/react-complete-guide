@@ -1,0 +1,9 @@
+/* any css class defined here are global, not specific to component, unlike angular css */
+.Person {
+    width: 40%;
+    margin: 15px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 30px;
+    text-align: center;
+}
