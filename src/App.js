@@ -11,7 +11,9 @@ function App() {
         <div className="App">
             <h1>Hi I'm a react APP</h1>
             <p>This is really working</p>
-            <Person></Person>
+            <Person name="Dhwani" age="21" />
+            <Person name="Vaidehi" age="23" />
+            <Person name="Beena" age="22" />
         </div>
     );
     // things behind this works like this, that is why in above syntax we
