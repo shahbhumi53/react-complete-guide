@@ -75,6 +75,9 @@ class App extends Component {
         this.setState({ showPersons: !doesShow });
     };
 
+    // KEEP IN MIND - react call the *render* method every time it has to update the DOM
+    // here in our case on click of the button we change the state by changing value of
+    // showPersons variable, we can decide here if Persons should have JSX code or not
     render() {
 
         // this is inline style
@@ -86,6 +89,26 @@ class App extends Component {
             padding: '8px',
             cursor: 'pointer'
         };
+
+        let persons = null;
+
+        if(this.state.showPersons) {
+            persons = (
+                <div>
+                    <Person name={ this.state.persons[0].name }
+                            age={ this.state.persons[0].age } />
+                    {/* preferable syntax to declare click events  */}
+                    <Person name={ this.state.persons[1].name }
+                            age={ this.state.persons[1].age }
+                            changed={ this.nameChangedHandler }
+                            click={ this.switchNameHandler.bind(this, 'DJOSHI') }>
+                        My hobby is : Shoes... collecting shoes
+                    </Person>
+                    <Person name={ this.state.persons[2].name }
+                            age={ this.state.persons[2].age } />
+                </div>
+            );
+        }
 
         return (
             <div className="App">
@@ -99,25 +122,7 @@ class App extends Component {
 
                 <button style={ btnStyle }
                         onClick={ this.toggelPersons } >Switch names</button>
-
-                {/*
-                    a simple JSX expression that uses ternary operator
-                */}
-                { this.state.showPersons ?
-                    <div>
-                        <Person name={ this.state.persons[0].name }
-                                age={ this.state.persons[0].age } />
-                        {/* preferable syntax to declare click events  */}
-                        <Person name={ this.state.persons[1].name }
-                                age={ this.state.persons[1].age }
-                                changed={ this.nameChangedHandler }
-                                click={ this.switchNameHandler.bind(this, 'DJOSHI') }>
-                            My hobby is : Shoes... collecting shoes
-                        </Person>
-                        <Person name={ this.state.persons[2].name }
-                                age={ this.state.persons[2].age } />
-                    </div> : null
-                }
+                { persons }
             </div>
         );
     }
