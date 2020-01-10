@@ -48,18 +48,6 @@ class App extends Component {
         showPersons: false,
     };
 
-    switchNameHandler = (args) => {
-        // console.log('Hello');
-        // DONT'T DO THIS - this.state.persons[0] = "DJ";
-        this.setState({
-            persons: [
-                { name: args, age: 25 },
-                { name: "Vaidehi", age: 27 },
-                { name: "Beena", age: 48 },
-            ]
-        });
-    };
-
     nameChangedHandler = (event) => {
         this.setState({
             persons: [
@@ -68,6 +56,19 @@ class App extends Component {
                 { name: "Beena", age: 48 },
             ]
         });
+    };
+
+    deletePersonHandler = (index) => {
+        // as we know arrays and objects are reference type, so gettig persons directly from
+        // state is actually holding the pointer to state of persons. we are directly mutating
+        // the state, which is not the approach to work, it may result in inconsistency of app.
+        // SO DO NOT GET STATE VARS DIRECTLY LIKE THIS
+        // const persons = this.state.persons;
+        // following are the best way and alternatives
+        // const persons = this.state.persons.splice();
+        const persons = [...this.state.persons];
+        persons.splice(index, 1);
+        this.setState({ persons: persons });
     };
 
     toggelPersons = () => {
@@ -95,11 +96,12 @@ class App extends Component {
         if(this.state.showPersons) {
             persons = (
                 <div>
-                    {
-                        this.state.persons.map((person) => {
-                            return <Person name={ person.name } age={ person.age } />
-                        })
-                    }
+                    {this.state.persons.map((person, index) => {
+                        // this.deletePersonHandler.bind(this, index) is another syntax
+                        return <Person name={ person.name }
+                                       age={ person.age }
+                                       click={ () => this.deletePersonHandler(index) }/>
+                    })}
                 </div>
             );
         }
