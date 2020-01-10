@@ -40,22 +40,27 @@ class App extends Component {
      */
     state = {
         persons: [
-            { name: "Dhwani", age: 25 },
-            { name: "Vaidehi", age: 27 },
-            { name: "Beena", age: 10 },
+            { id:'1q', name: "Dhwani", age: 25 },
+            { id:'2q', name: "Vaidehi", age: 27 },
+            { id:'3q', name: "Beena", age: 10 },
         ],
         otherStateProp: 'Will it be changed ?',
         showPersons: false,
     };
 
-    nameChangedHandler = (event) => {
-        this.setState({
-            persons: [
-                { name: 'Dhwani', age: 25 },
-                { name: event.target.value, age: 27 },
-                { name: "Beena", age: 48 },
-            ]
-        });
+    nameChangedHandler = (event, id) => {
+        // find the index
+        const personIndex = this.state.persons.findIndex(p => { return p.id === id; });
+        // find that particular person(OF COURSE CREATE A COPY)
+        const person = { ...this.state.persons[personIndex] };
+        // update that particular person name(UPDATE THE COPY)
+        person.name = event.target.value;
+        // now set in the state, SO FIRST GET COPY FROM STATE
+        const persons = [...this.state.persons];
+        // -- IN THE COPY UPDATE
+        persons[personIndex] = person;
+        // DO NOT MUTATE THE STATE DIRECTLY, THAT IS WHY TOO MANY STEPS ARE WRITTEN
+        this.setState({ persons: persons });
     };
 
     deletePersonHandler = (index) => {
@@ -100,6 +105,8 @@ class App extends Component {
                         // this.deletePersonHandler.bind(this, index) is another syntax
                         return <Person name={ person.name }
                                        age={ person.age }
+                                       key={ person.id }
+                                       changed={ (event) => this.nameChangedHandler(event, person.id) }
                                        click={ () => this.deletePersonHandler(index) }/>
                     })}
                 </div>
