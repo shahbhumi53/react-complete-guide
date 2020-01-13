@@ -1,5 +1,6 @@
 import React from 'react';
 import './Person.css';
+import Radium from "radium";
 
 /*
  - as props contains something that is comes from outside of the component
@@ -22,4 +23,4 @@ const person = (props) => {
     );
 };
 
-export default person;
+export default Radium(person);
