@@ -88,10 +88,12 @@ class App extends Component {
 
         // this is inline style
         // biggest drawback of using this syntax is you can not add css like :hover, :focus etc
+        // pseudo selectors can not be added
         const btnStyle = {
-            backgroundColor: 'white',
+            backgroundColor: '#009688',
+            color: 'white',
             font: 'inherit',
-            border: '1px solid blue',
+            border: '1px solid #009688',
             padding: '8px',
             cursor: 'pointer'
         };
@@ -111,6 +113,9 @@ class App extends Component {
                     })}
                 </div>
             );
+
+            btnStyle.backgroundColor = '#e91e63';
+            btnStyle.border = '#e91e63';
         }
 
         return (
@@ -124,7 +129,7 @@ class App extends Component {
                  reference */}
 
                 <button style={ btnStyle }
-                        onClick={ this.toggelPersons } >Switch names</button>
+                        onClick={ this.toggelPersons } >Toggle Persons</button>
                 { persons }
             </div>
         );
