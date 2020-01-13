@@ -118,10 +118,20 @@ class App extends Component {
             btnStyle.border = '#e91e63';
         }
 
+        // let classes = ['purple', 'bold'].join(' ');
+        const classes = [];
+        if(this.state.persons.length <= 2) {
+            classes.push(['purple']);
+        }
+
+        if(this.state.persons.length <= 1) {
+            classes.push('bold');
+        }
+
         return (
             <div className="App">
                 <h1>Hi I'm a react APP</h1>
-                <p>This is really working</p>
+                <p className={ classes.join(' ') }>This is really working</p>
 
                 {/* make sure not to use round bracket like this.switchNameHandler() as it will
                  execute that functional immediately on load of the page. But we need the

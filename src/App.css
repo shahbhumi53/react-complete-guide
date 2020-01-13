@@ -2,3 +2,12 @@
 .App {
   text-align: center;
 }
+
+.purple {
+  /*color: ""#e91e63";*/
+  color: #673ab7;
+}
+
+.bold {
+  font-weight: bold;
+}
