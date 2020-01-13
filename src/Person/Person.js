@@ -9,10 +9,17 @@ import Radium from "radium";
  - if state changes or prop changes then react will re-render or update the DOM
  */
 const person = (props) => {
+
+    const styles = {
+        '@media (min-width: 500px)': {
+            width: '450px',
+        }
+    };
+
     // dynamic content can be part of JSX, just need to wrap it on curly braces
     /*this will render anything between tag of Person in JSX */
     return (
-        <div className="Person">
+        <div className="Person" style={ styles }>
             {/*<p>I am a { props.name } and { Math.floor(Math.random() * 30) } year old.</p>*/}
             <p onClick={ props.click } >I am a { props.name } and { props.age } year old.</p>
             <p>{ props.children }</p>

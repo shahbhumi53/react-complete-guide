@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium from "radium";
+import Radium, { StyleRoot } from "radium";
 
 import Person from "./Person/Person";
 
@@ -136,19 +136,21 @@ class App extends Component {
         }
 
         return (
-            <div className="App">
-                <h1>Hi I'm a react APP</h1>
-                <p className={ classes.join(' ') }>This is really working</p>
+            <StyleRoot>
+                <div className="App">
+                    <h1>Hi I'm a react APP</h1>
+                    <p className={ classes.join(' ') }>This is really working</p>
 
-                {/* make sure not to use round bracket like this.switchNameHandler() as it will
-                 execute that functional immediately on load of the page. But we need the
-                 function to be executed only when button is clicked. We just passed the
-                 reference */}
+                    {/* make sure not to use round bracket like this.switchNameHandler() as it will
+                     execute that functional immediately on load of the page. But we need the
+                     function to be executed only when button is clicked. We just passed the
+                     reference */}
 
-                <button style={ btnStyle }
-                        onClick={ this.toggelPersons } >Toggle Persons</button>
-                { persons }
-            </div>
+                    <button style={ btnStyle }
+                            onClick={ this.toggelPersons } >Toggle Persons</button>
+                    { persons }
+                </div>
+            </StyleRoot>
         );
     }
 }
